@@ -1,26 +1,29 @@
-import openai
-from config import OPENAI_API_KEY
+import google.genai as genai
+from config import GEMINI_API_KEY, GPT_MAX_TOKENS
 
-openai.api_key = OPENAI_API_KEY
+client = genai.Client(api_key=GEMINI_API_KEY)
 
-def generate_verification_questions(claims: list) -> list:
-    claims_text = "\n".join(f"- {c}" for c in claims)
+def generate_verification_questions(article_text: str) -> list:
     prompt = (
-        "Based on the following list of claims from a news article, generate 3-4 specific "
-        "questions a reader should ask to independently verify the content. Return as a Python list.\n\n"
-        f"Claims:\n{claims_text}\n\nVerification Questions:"
+        "Generate 3-4 specific questions a reader should ask to independently verify the claims "
+        "and content of the following news article. Return them as a numbered list in plain text.\n\n"
+        f"Article:\n{article_text}\n\nVerification Questions:"
     )
-    response = openai.ChatCompletion.create(
-        model="gpt-5-mini",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.3,
-        max_tokens=150
+    
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=prompt
     )
-    questions_text = response['choices'][0]['message']['content']
-    try:
-        questions_list = eval(questions_text)
-        if isinstance(questions_list, list):
-            return questions_list
-    except:
-        pass
-    return ["Could not generate verification questions automatically."]
+    
+    questions_text = response.text.strip()
+    
+    questions = []
+    for line in questions_text.split('\n'):
+        line = line.strip().lstrip("0123456789.-) ")
+        if line:
+            questions.append(line)
+    
+    if not questions:
+        return ["Could not generate verification questions automatically."]
+    
+    return questions

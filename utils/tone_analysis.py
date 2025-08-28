@@ -1,7 +1,7 @@
-import openai
-from config import OPENAI_API_KEY
+import google.genai as genai
+from config import GEMINI_API_KEY, GPT_MAX_TOKENS
 
-openai.api_key = OPENAI_API_KEY
+client = genai.Client(api_key=GEMINI_API_KEY)
 
 def analyze_tone(article_text: str) -> str:
     prompt = (
@@ -10,10 +10,11 @@ def analyze_tone(article_text: str) -> str:
         "and give a short explanation.\n\n"
         f"Article:\n{article_text}\n\nTone Analysis:"
     )
-    response = openai.ChatCompletion.create(
-        model="gpt-5-mini",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.3,
-        max_tokens=100
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=prompt
     )
-    return response['choices'][0]['message']['content'].strip()
+    
+    tone = response.text.strip()
+    
+    return tone
