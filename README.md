@@ -3,3 +3,21 @@ Virtual Hackathon for Darwix AI
 
 ## About Darwix AI
 Building the agent led future to level up customer conversations for omni-channel sales teams across the world
+
+### The Premise
+In software development, code reviews are the lifeblood of a healthy team. They catch
+bugs, improve quality, and spread knowledge. However, they are often a source of
+friction and a truly mundane task. Written feedback can feel blunt, impersonal, and at
+worst, discouraging. A junior developer might feel attacked by a comment like "This is
+inefficient," while the senior developer who wrote it was simply being direct. This
+communication gap slows down learning and can harm team morale. Your mission is
+to build an AI that acts as a bridge, translating raw critique into supportive,
+educational guidance, thereby freeing developers from the negative cycle of harsh
+feedback.
+
+### Your Mission
+Create a program that takes a snippet of code and a list of direct, critical review
+comments, and then uses Generative AI to rewrite them. The AI should act as an ideal
+senior developer or a patient mentor, rephrasing the feedback to be empathetic,
+constructive, and educational, ensuring the recipient understands the "why" behind
+the suggestion, not just the "what."
