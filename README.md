@@ -4,7 +4,7 @@
 Virtual Hackathon for Darwix AI
 
 ## About Darwix AI
-Building the agent led future to level up customer conversations for omni-channel sales teams across the world
+Building the agent led future to level up customer conversations for omni-channel sales teams across the world.
 
 ### The Premise
 In software development, code reviews are the lifeblood of a healthy team. They catch
@@ -40,3 +40,36 @@ the suggestion, not just the "what."
 ---
 
 ## Folder Structure
+
+DigitalSkepticAI/
+│
+├── main.py # Main script to generate reports
+├── config.py # Configuration settings (API keys, directories)
+├── .env # Stores sensitive keys (not committed to Git)
+├── requirements.txt # Python dependencies
+├── README.md # Project documentation
+│
+├── reports/ # Generated analysis reports
+│
+├── utils/ # Helper functions for different tasks
+│ ├── fetch_article.py
+│ ├── text_processing.py
+│ ├── claim_extraction.py
+│ ├── tone_analysis.py
+│ ├── red_flags.py
+│ ├── verification_questions.py
+│ ├── entity_analysis.py
+│ └── counter_argument.py
+│
+└── tests/ # Unit tests for utility functions
+├── test_fetch_article.py
+├── test_claim_extraction.py
+└── ...
+
+
+## Setup Instructions
+
+1. **Clone the repository:**
+```bash
+git clone <your-repo-url>
+cd DigitalSkepticAI'''
