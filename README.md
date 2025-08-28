@@ -42,29 +42,34 @@ the suggestion, not just the "what."
 ## Folder Structure
 
 DigitalSkepticAI/
+├── main.py                     # Core Python script to generate reports
+├── app.py                      # Streamlit frontend
+├── config.py                   # Configuration settings (API keys, directories)
+├── .env                        # Stores sensitive keys (not committed to Git)
+├── requirements.txt            # Python dependencies
+├── README.md                   # Project documentation
+├── .gitignore                  # Files/folders to ignore in Git
 │
-├── main.py # Main script to generate reports
-├── config.py # Configuration settings (API keys, directories)
-├── .env # Stores sensitive keys (not committed to Git)
-├── requirements.txt # Python dependencies
-├── README.md # Project documentation
+├── reports/                    # Generated analysis reports (Markdown files)
 │
-├── reports/ # Generated analysis reports
+├── utils/                      # Helper functions for different tasks
+│   ├── fetch_article.py
+│   ├── text_processing.py
+│   ├── claim_extraction.py
+│   ├── tone_analysis.py
+│   ├── red_flags.py
+│   ├── verification_questions.py
+│   ├── entity_analysis.py
+│   └── counter_argument.py
 │
-├── utils/ # Helper functions for different tasks
-│ ├── fetch_article.py
-│ ├── text_processing.py
-│ ├── claim_extraction.py
-│ ├── tone_analysis.py
-│ ├── red_flags.py
-│ ├── verification_questions.py
-│ ├── entity_analysis.py
-│ └── counter_argument.py
-│
-└── tests/ # Unit tests for utility functions
-├── test_fetch_article.py
-├── test_claim_extraction.py
-└── ...
+├── tests/                      # Unit tests for utility functions
+│   ├── test_fetch_article.py
+│   ├── test_claim_extraction.py
+│   ├── test_tone_analysis.py
+│   ├── test_red_flags.py
+│   ├── test_verification_questions.py
+│   ├── test_entity_analysis.py
+│   └── test_counter_argument.py
 
 ---
 
