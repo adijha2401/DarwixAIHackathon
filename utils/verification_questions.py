@@ -1,12 +1,21 @@
 import google.genai as genai
-from config import GEMINI_API_KEY, GPT_MAX_TOKENS
+from config import GEMINI_API_KEY
 
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 def generate_verification_questions(article_text: str) -> list:
+    """
+    Generates 3-4 specific verification questions for readers to fact-check the article.
+
+    Parameters:
+    - article_text (str): Cleaned article text.
+
+    Returns:
+    - list: List of questions.
+    """
     prompt = (
-        "Generate 3-4 specific questions a reader should ask to independently verify the claims "
-        "and content of the following news article. Return them as a numbered list in plain text.\n\n"
+        "Generate 3-4 specific questions a reader should ask to verify the factual accuracy "
+        "and credibility of this news article.\n\n"
         f"Article:\n{article_text}\n\nVerification Questions:"
     )
     
@@ -15,15 +24,6 @@ def generate_verification_questions(article_text: str) -> list:
         contents=prompt
     )
     
-    questions_text = response.text.strip()
-    
-    questions = []
-    for line in questions_text.split('\n'):
-        line = line.strip().lstrip("0123456789.-) ")
-        if line:
-            questions.append(line)
-    
-    if not questions:
-        return ["Could not generate verification questions automatically."]
-    
-    return questions
+    text = response.text.strip()
+    questions = [line.strip("1234567890.-* ") for line in text.split("\n") if line.strip()]
+    return questions if questions else ["Could not generate verification questions automatically."]

@@ -1,15 +1,29 @@
 import requests
 from bs4 import BeautifulSoup
-from config import USER_AGENT
 
 def fetch_article_text(url: str) -> str:
-    headers = {"User-Agent": USER_AGENT}
+    """
+    Fetches the main text content of a news article from a given URL.
+
+    Parameters:
+    - url (str): The URL of the news article.
+
+    Returns:
+    - str: The cleaned text content of the article.
+           Returns an empty string if fetching fails.
+    """
     try:
-        response = requests.get(url, headers=headers)
+        response = requests.get(url)
         response.raise_for_status()
-        soup = BeautifulSoup(response.text, "html.parser")
-        paragraphs = soup.find_all("p")
-        return "\n".join(p.get_text() for p in paragraphs)
-    except Exception as e:
-        print(f"Error fetching article: {e}")
+    except requests.RequestException as e:
+        print(f"Error fetching the article: {e}")
         return ""
+    
+    # Parse HTML using BeautifulSoup
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    # Extract text from <p> tags (main content)
+    paragraphs = soup.find_all("p")
+    article_text = "\n".join([p.get_text() for p in paragraphs])
+    
+    return article_text

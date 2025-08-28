@@ -21,3 +21,20 @@ comments, and then uses Generative AI to rewrite them. The AI should act as an i
 senior developer or a patient mentor, rephrasing the feedback to be empathetic,
 constructive, and educational, ensuring the recipient understands the "why" behind
 the suggestion, not just the "what."
+
+**Digital Skeptic AI** is an assistant designed to help readers critically analyze news articles. Instead of telling you what is "true" or "false," it highlights claims, examines language, and provides questions and prompts to guide your independent verification.
+
+---
+
+## Key Features
+
+1. **Core Claim Extraction:** Identifies 3-5 main factual claims in an article.
+2. **Language & Tone Analysis:** Classifies articles as Neutral, Persuasive, Opinionated, or Emotionally Charged.
+3. **Red Flag Detection:** Detects loaded language, biases, or poor reporting practices.
+4. **Verification Questions:** Generates insightful questions to help readers fact-check the article.
+5. **Entity Recognition:** Identifies key people, organizations, and locations with investigation prompts.
+6. **Counter-Argument Simulation:** Summarizes the article from a hypothetical opposing viewpoint to highlight biases.
+
+---
+
+## Folder Structure
