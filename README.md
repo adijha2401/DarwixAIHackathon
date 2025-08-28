@@ -40,7 +40,7 @@ the suggestion, not just the "what."
 ---
 
 ## Folder Structure
-
+```
 DigitalSkepticAI/
 ├── main.py                     # Core Python script to generate reports
 ├── app.py                      # Streamlit frontend
@@ -70,6 +70,7 @@ DigitalSkepticAI/
 │   ├── test_verification_questions.py
 │   ├── test_entity_analysis.py
 │   └── test_counter_argument.py
+```
 
 ---
 
