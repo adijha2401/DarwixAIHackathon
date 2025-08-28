@@ -129,16 +129,13 @@ The tests/ folder contains unit tests for utility modules. Run all tests using:
 python -m unittest discover tests
 ```
 
-Tips for Hackathon Presentation
+**Tips for Hackathon Presentation**
 1. Entity Recognition: Investigate key people, organizations, and locations mentioned in the article.
 Example: "Investigate the author's previous work" or "Check funding of 'The XYZ Institute'."
-
 2. Counter-Argument Simulation: Summarize the article from an opposing viewpoint to highlight potential biases.
-
 3. Interactive Demo: Streamlit frontend allows judges to input any URL and see instant analysis.
-
 4. Clear Visuals: Use the assets/ folder to include logos, diagrams, or screenshots in your README.
 
-Security Note
+**Security Note**
 - Do not commit your .env file containing your API key to GitHub. Add .env to .gitignore.
 - Use environment variables to securely store and access keys.
