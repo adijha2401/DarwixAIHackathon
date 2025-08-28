@@ -5,10 +5,11 @@ from utils.claim_extraction import extract_core_claims
 from utils.tone_analysis import analyze_tone
 from utils.red_flags import detect_red_flags
 from utils.verification_questions import generate_verification_questions
+from utils.entity_analysis import extract_entities, generate_entity_prompts
+from utils.counter_argument import simulate_counter_argument
 from config import REPORTS_DIR
 
 def generate_report(url: str, report_filename: str):
-    # Step 1: Fetch article
     print("Fetching article...")
     article_text = fetch_article_text(url)
     
@@ -16,26 +17,27 @@ def generate_report(url: str, report_filename: str):
         print("Failed to fetch article content.")
         return
     
-    # Step 2: Clean article
     clean_article = clean_text(article_text)
     
-    # Step 3: Extract core claims
     print("Extracting core claims...")
     claims = extract_core_claims(clean_article)
     
-    # Step 4: Analyze tone
     print("Analyzing language and tone...")
     tone_analysis = analyze_tone(clean_article)
     
-    # Step 5: Detect red flags
     print("Detecting potential red flags...")
     red_flags = detect_red_flags(clean_article)
     
-    # Step 6: Generate verification questions
     print("Generating verification questions...")
     questions = generate_verification_questions(clean_article)
     
-    # Step 7: Prepare report content
+    print("Extracting entities and generating investigation prompts...")
+    entities = extract_entities(clean_article)
+    entity_prompts = generate_entity_prompts(entities)
+    
+    print("Generating counter-argument summary...")
+    counter_argument = simulate_counter_argument(clean_article)
+    
     report_lines = [
         f"# Critical Analysis Report for: {url}\n",
         "### Core Claims"
@@ -57,9 +59,19 @@ def generate_report(url: str, report_filename: str):
     for q in questions:
         report_lines.append(f"1. {q}")
     
+    report_lines.extend([
+        "\n### Entities & Investigation Prompts"
+    ])
+    for ep in entity_prompts:
+        report_lines.append(f"* {ep}")
+    
+    report_lines.extend([
+        "\n### Counter-Argument Simulation",
+        counter_argument
+    ])
+    
     report_content = "\n".join(report_lines)
     
-    # Step 8: Save report
     if not os.path.exists(REPORTS_DIR):
         os.makedirs(REPORTS_DIR)
     
