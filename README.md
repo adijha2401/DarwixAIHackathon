@@ -66,6 +66,7 @@ DigitalSkepticAI/
 ├── test_claim_extraction.py
 └── ...
 
+---
 
 ## Setup Instructions
 
@@ -75,4 +76,68 @@ git clone <your-repo-url>
 cd DigitalSkepticAI
 ```
 
+2. Create a virtual environment and activate it:
+```
+bash
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+```
 
+3. Install dependencies:
+```
+bash
+=pip install -r requirements.txt
+```
+
+4. Set up environment variables:
+Create a .env file in the root directory and add your Google Gemini API key:
+
+```
+GEMINI_API_KEY=your_api_key_here
+```
+
+5. (Optional) Install SpaCy English model:
+
+```
+python -m spacy download en_core_web_sm
+```
+
+Running the Project
+Option 1: Streamlit Frontend
+```
+bash
+streamlit run app.py
+```
+- A browser window opens automatically.
+- Paste a news article URL, click Generate Report, and view the interactive analysis.
+
+Option 2: Command-Line
+```
+bash
+python main.py
+```
+- Enter a URL when prompted.
+- The report is generated in reports/analysis_report.md and printed in the terminal.
+
+Testing Utilities
+The tests/ folder contains unit tests for utility modules. Run all tests using:
+```
+python -m unittest discover tests
+```
+
+Tips for Hackathon Presentation
+1. Entity Recognition: Investigate key people, organizations, and locations mentioned in the article.
+Example: "Investigate the author's previous work" or "Check funding of 'The XYZ Institute'."
+
+2. Counter-Argument Simulation: Summarize the article from an opposing viewpoint to highlight potential biases.
+
+3. Interactive Demo: Streamlit frontend allows judges to input any URL and see instant analysis.
+
+4. Clear Visuals: Use the assets/ folder to include logos, diagrams, or screenshots in your README.
+
+Security Note
+- Do not commit your .env file containing your API key to GitHub. Add .env to .gitignore.
+- Use environment variables to securely store and access keys.
