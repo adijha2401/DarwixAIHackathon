@@ -78,7 +78,6 @@ cd DigitalSkepticAI
 
 2. Create a virtual environment and activate it:
 ```
-bash
 python -m venv venv
 # Windows
 venv\Scripts\activate
@@ -88,7 +87,6 @@ source venv/bin/activate
 
 3. Install dependencies:
 ```
-bash
 =pip install -r requirements.txt
 ```
 
@@ -108,7 +106,6 @@ python -m spacy download en_core_web_sm
 Running the Project
 Option 1: Streamlit Frontend
 ```
-bash
 streamlit run app.py
 ```
 - A browser window opens automatically.
@@ -116,7 +113,6 @@ streamlit run app.py
 
 Option 2: Command-Line
 ```
-bash
 python main.py
 ```
 - Enter a URL when prompted.
