@@ -1,6 +1,7 @@
 # DarwixAIHackathon
-Virtual Hackathon for Darwix AI
 <img src = "https://img.etimg.com/thumb/width-650,height-488,imgsize-14594,resizemode-75,msid-121912486/tech/funding/genai-startup-darwix-ai-raises-1-5-million-in-seed-funding.jpg" width="300">
+
+Virtual Hackathon for Darwix AI
 
 ## About Darwix AI
 Building the agent led future to level up customer conversations for omni-channel sales teams across the world
