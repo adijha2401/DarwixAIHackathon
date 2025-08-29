@@ -109,7 +109,8 @@ GEMINI_API_KEY=your_api_key_here
 python -m spacy download en_core_web_sm
 ```
 
-Running the Project
+### Running the Project
+
 Option 1: Streamlit Frontend
 ```
 streamlit run app.py
@@ -124,7 +125,7 @@ python main.py
 - Enter a URL when prompted.
 - The report is generated in reports/analysis_report.md and printed in the terminal.
 
-Testing Utilities
+Additional, not necessary: Testing Utilities
 The tests/ folder contains unit tests for utility modules. Run all tests using:
 ```
 python -m unittest discover tests
