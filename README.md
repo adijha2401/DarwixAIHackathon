@@ -78,7 +78,7 @@ DigitalSkepticAI/
 
 1. **Clone the repository:**
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/adijha2401/DarwixAIHackathon.git
 cd DigitalSkepticAI
 ```
 
