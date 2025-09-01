@@ -9,7 +9,7 @@ to build an AI that acts as a bridge, translating raw critique into supportive,
 educational guidance, thereby freeing developers from the negative cycle of harsh
 feedback.
 
-### Your Mission
+### The Mission
 Create a program that takes a snippet of code and a list of direct, critical review
 comments, and then uses Generative AI to rewrite them. The AI should act as an ideal
 senior developer or a patient mentor, rephrasing the feedback to be empathetic,
